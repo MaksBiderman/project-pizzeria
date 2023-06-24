@@ -3,9 +3,9 @@
 {
   'use strict';
 
-const select = {
-  templateOf: {
-    menuProduct: "#template-menu-product",
+  const select = {
+    templateOf: {
+      menuProduct: "#template-menu-product",
     },
     containerOf: {
       menu: '#product-list',
@@ -51,15 +51,16 @@ const select = {
   const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   };
-  class Product{
-    constructor(id, data){
-      const thisProduct =this;
+  class Product {
+    constructor(id, data) {
+      const thisProduct = this;
       thisProduct.id = id;
       thisProduct.data = data;
       thisProduct.renderInMenu();
+      thisProduct.initAccordeion();
       console.log('new Product:', thisProduct)
     }
-    renderInMenu(){
+    renderInMenu() {
       const thisProduct = this
       /* generate HTML based on tamplate */
       const generateHTML = templates.menuProduct(thisProduct.data);
@@ -70,21 +71,42 @@ const select = {
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
+    initAccordeion() {
+      const thisProduct = this;
+      /* find the clickable trigger (the element that should react to clicking) */
+      const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+
+      /* START: add event listener to clickable trigger on event click */
+      clickableTrigger.addEventListener('click', function (event) {
+        /* prevent default action for event */
+        event.preventDefault
+
+        /* find active product (product that has active class) */
+        const activeProduct = document.querySelector(select.all.menuProductsActive);
+
+        /* if there is active product and it's not thisProduct.element, remove class active from it */
+        if (activeProduct && activeProduct != thisProduct.element) {
+          activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
+        }
+        /* toggle active class on thisProduct.element */
+        thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
+      });
+    }
   }
   const app = {
-    initMenu: function(){
+    initMenu: function () {
       const thisApp = this;
-      console.log('thisApp.data:',thisApp.data);
-      for(let productData in thisApp.data.products){
+      console.log('thisApp.data:', thisApp.data);
+      for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
       }
 
     },
-    initData: function(){
+    initData: function () {
       const thisApp = this;
       thisApp.data = dataSource;
     },
-    init: function(){
+    init: function () {
       const thisApp = this;
       console.log('*** App starting ***');
       console.log('thisApp:', thisApp);
