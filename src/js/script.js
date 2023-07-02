@@ -216,10 +216,11 @@
         }
 
       }
+      thisProduct.priceSingle = price;
       /* multiply price by amount */
       price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
-      thisProduct.priceSingle = price;
+      
       thisProduct.dom.priceElem.innerHTML = price;
     }
     initAmountWidget() {
@@ -318,12 +319,12 @@
         thisWidget.setValue(thisWidget.input.value);
       });
       thisWidget.linkDecrease.addEventListener('click', function (event) {
-        event.preventDefault;
+        event.preventDefault();
         thisWidget.input.value--;
         thisWidget.setValue(thisWidget.input.value);
       });
       thisWidget.linkIncrease.addEventListener('click', function (event) {
-        event.preventDefault;
+        event.preventDefault();
         thisWidget.input.value++;
         thisWidget.setValue(thisWidget.input.value);
       });
@@ -406,8 +407,8 @@
       for (let totalPriceElem of thisCart.dom.totalPrice) {
         totalPriceElem.innerHTML = thisCart.totalPrice;
       }
-      console.log('subtotalPrice', subtotalPrice);
-      console.log('totalPrice', thisCart.totalPrice);
+      //console.log('subtotalPrice', subtotalPrice);
+      //console.log('totalPrice', thisCart.totalPrice);
     }
   }
   class CartProduct{
@@ -418,6 +419,7 @@
     thisCartProduct.amount = menuProduct.amount;
     thisCartProduct.price = menuProduct.price;
     thisCartProduct.priceSingle = menuProduct.priceSingle;
+    console.log('TO JEST TO',thisCartProduct.priceSingle);
     thisCartProduct.element = element;
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
@@ -427,7 +429,7 @@
     getElements(element){
       const thisCartProduct = this;
       thisCartProduct.dom = {};
-      thisCartProduct.dom.wrapper = thisCartProduct.element;
+      thisCartProduct.dom.wrapper = element;
       thisCartProduct.dom.amountWidget = thisCartProduct.element.querySelector(select.cartProduct.amountWidget);
       thisCartProduct.dom.price = thisCartProduct.element.querySelector(select.cartProduct.price);
       thisCartProduct.dom.edit = thisCartProduct.element.querySelector(select.cartProduct.edit);
@@ -453,7 +455,7 @@
       },
     });
     thisCartProduct.dom.wrapper.dispatchEvent(event);
-    console.log("remove");
+    //console.log("remove");
     }
     initActions(){
       const thisCartProduct = this;
