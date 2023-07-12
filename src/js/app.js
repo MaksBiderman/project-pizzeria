@@ -17,11 +17,12 @@ const app = {
     const idfromHash = window.location.hash.replace('#/', '');
     //console.log('idFromHash', idfromHash);
 
-    let pageMatchingHash = thisApp.pages[0].id;
+    //let pageMatchingHash = thisApp.pages[0].id;
+   // console.log(pageMatchingHash);
 
     for(let page of thisApp.pages){
       if(page.id == idfromHash){
-        pageMatchingHash = page.id;
+      //  pageMatchingHash = page.id;
         break;
       }
     }
