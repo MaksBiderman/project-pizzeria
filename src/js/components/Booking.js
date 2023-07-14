@@ -155,7 +155,12 @@ class Booking {
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
     thisBooking.dom.tablesWrapper = thisBooking.dom.wrapper.querySelector(select.booking.tablesWrapper);
     thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
-    console.log(thisBooking.dom);
+    thisBooking.dom.phone = thisBooking.dom.form.querySelector('input[name="phone"]');
+    thisBooking.dom.address = thisBooking.dom.form.querySelector('input[name="address"]');
+    
+    
+    console.log('to1',thisBooking.peopleAmount);
+    console.log(thisBooking.dom.peopleAmount.querySelector('input').value);
 
   }
   initTables(event) {
@@ -204,8 +209,8 @@ class Booking {
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
       table: parseInt(thisBooking.selectTable),
-      duration: parseInt(thisBooking.hoursAmount.value),
-      ppl: parseInt(thisBooking.dom.peopleAmount.value),
+      duration: parseInt(thisBooking.dom.hoursAmount.querySelector('input').value),
+      ppl: parseInt(thisBooking.dom.peopleAmount.querySelector('input').value),
       starters: starters,
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.address.value
