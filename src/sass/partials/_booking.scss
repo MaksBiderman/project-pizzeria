@@ -173,6 +173,11 @@
         }
   
       }
+      &.selected {
+        color:aqua;
+        border: 5px, solid;
+        border-color: aqua;
+      }
     }
   
     [data-table="1"] {
