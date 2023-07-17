@@ -110,8 +110,8 @@ const app = {
     thisApp.initBooking();
     thisApp.initLinks();
 
-    var elem = document.querySelector('.main-carousel');
-    var flkty = new Flickity( elem, {
+    var elem = document.querySelector('.main-carousel'); // eslint-disable-line
+    var flkty = new Flickity( elem, { // eslint-disable-line
   // options
   cellAlign: 'center',
   contain: true,
