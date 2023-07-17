@@ -8,9 +8,10 @@
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
     rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -24,6 +25,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -65,6 +67,113 @@
   </header>
 
   <div id="pages">
+    <section id="home">
+      <div class="home container">
+        <div class="home-container  home-container--two-thirds">
+          <a href="#/order" id="link-order" class="home-link">
+            <div class="home-box order">
+              <h3 class="home-title an">ORDER</h3>
+              <p class="home-description an">Place your pizza order online</p>
+            </div>
+          </a>
+        </div>
+        <div class="home-container  home-container--two-thirds">
+          <a href="#/booking"  id="link-booking" class="home-link">
+            <div class="home-box booking">
+              <h3 class="home-title an">BOOKING</h3>
+              <p class="home-description an">Make a reservation for a table</p>
+            </div>
+          </a>
+        </div>
+        <div class="home-container container-hours">
+          <div class="home-box container-hours">
+            <h3 class="home-title">OPENING HOURS:</h3>
+            <p class="home-description">MON-SUN,12PM-11PM</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="main-carousel">
+          <div class="carousel-cell">
+            <div class="carousel-content">
+              <div class="image-container">
+                <img src="/images/pizzeria-home/assets/pizza-3.jpg" alt="Pizza 1">
+              </div>
+              <div class="text-container">
+                <h3>1000 zadowolonych klientów</h3>
+                <p>Najlepsza pizza w twoijej okolicy</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="carousel-content">
+              <div class="image-container">
+                <img src="/images/pizzeria-home/assets/pizza-1.jpg" alt="Pizza 2">
+              </div>
+              <div class="text-container">
+                <h3>1000 zadowolonych klientów</h3>
+                <p>Najlepsza pizza w twoijej okolicy</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="carousel-content">
+              <div class="image-container">
+                <img src="/images/pizzeria-home/assets/pizza-3.jpg" alt="Pizza 3">
+              </div>
+              <div class="text-container">
+                <h3>1000 zadowolonych klientów</h3>
+                <p>Najlepsza pizza w twoijej okolicy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-4.jpg" alt="Obrazek 1">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a>
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a> 
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-5.jpg" alt="Obrazek 2">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a>
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a> 
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-6.jpg" alt="Obrazek 3">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a>
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a> 
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-7.jpg" alt="Obrazek 4">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a>
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a> 
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-1.jpg" alt="Obrazek 5">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a>
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a> 
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/images/pizzeria-home/assets/pizza-9.jpg" alt="Obrazek 6">
+            <div class="overlay">
+              <a href="#"><i class="fa-solid fa-heart"></i></a> 
+              <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+            </div>
+          </div>
+        </div>
+        <a href="#">View more info on instagram</a>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -247,6 +356,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="js/app.js" type="module"></script>
 
 

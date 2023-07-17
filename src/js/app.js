@@ -16,18 +16,18 @@ const app = {
 
     const idfromHash = window.location.hash.replace('#/', '');
     //console.log('idFromHash', idfromHash);
-
+    let defaultPage = thisApp.pages[0].id;
     //let pageMatchingHash = thisApp.pages[0].id;
    // console.log(pageMatchingHash);
 
     for(let page of thisApp.pages){
       if(page.id == idfromHash){
-      //  pageMatchingHash = page.id;
+       // pageMatchingHash = page.id;
         break;
       }
     }
 
-    thisApp.activatePage(idfromHash);
+    thisApp.activatePage(defaultPage);
 
 
     for(let link of thisApp.navLinks){
@@ -45,6 +45,21 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+  },
+  initLinks: function(){
+   const thisApp = this;
+    const linkOrder = document.querySelector('#link-order');
+    const linkBooking = document.querySelector('#link-booking');
+    linkOrder.addEventListener('click', function(event){
+      event.preventDefault();
+      thisApp.activatePage('order');
+      window.location.hash = '#/order';
+    })
+    linkBooking.addEventListener('click', function(event){
+      event.preventDefault();
+      thisApp.activatePage('booking');
+      window.location.hash = '#/booking';
+    })
   },
   activatePage: function (pageId){
     const thisApp = this;
@@ -88,16 +103,25 @@ const app = {
   },
   init: function () {
     const thisApp = this;
-    //console.log('*** App starting ***');
-    // console.log('thisApp:', thisApp);
-    // console.log('classNames:', classNames);
-    // console.log('settings:', settings);
-    //console.log('templates:', templates);
+    
     thisApp.initData();
     thisApp.initCart();
     thisApp.initPages();
     thisApp.initBooking();
-  },
+    thisApp.initLinks();
+
+    var elem = document.querySelector('.main-carousel');
+    var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'center',
+  contain: true,
+  autoPlay: 3000,
+  pauseAutoPlayOnHover: false
+});
+
+// element argument can be a selector string
+//   for an individual element
+   },
   initCart: function () {
     const thisApp = this;
     const cartElem = document.querySelector(select.containerOf.cart);
